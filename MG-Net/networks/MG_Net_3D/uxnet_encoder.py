@@ -4,9 +4,9 @@ import torch.nn.functional as F
 from timm.models.layers import trunc_normal_, DropPath
 from functools import partial
 from monai.utils import ensure_tuple_rep, optional_import
-from networks.UXGCNNet_3D.swin_transformer import SwinTransformer
+from networks.MG_Net_3D.swin_transformer import SwinTransformer
 # from networks.TransBTS.Transformer import TransformerModel
-from networks.UXGCNNet_3D.dcnv3 import DCNv3_pytorch_3d
+from networks.MG_Net_3D.dcnv3 import DCNv3_pytorch_3d
 from natten import NeighborhoodAttention3D
 from monai.networks.blocks import MLPBlock as Mlp
 class LayerNorm(nn.Module):

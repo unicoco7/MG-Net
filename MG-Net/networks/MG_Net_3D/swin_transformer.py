@@ -20,7 +20,7 @@ from torch.nn import LayerNorm
 
 from monai.networks.blocks import MLPBlock as Mlp
 from monai.networks.blocks import PatchEmbed, UnetOutBlock
-from networks.UXGCNNet_3D.CGCN_UpBlock import UnetrBasicBlock, UnetrUpBlock
+from networks.MG_Net_3D.CGCN_UpBlock import UnetrBasicBlock, UnetrUpBlock
 from monai.networks.layers import DropPath, trunc_normal_
 from monai.utils import ensure_tuple_rep, optional_import
 

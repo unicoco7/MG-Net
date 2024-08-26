@@ -3,7 +3,7 @@
 from tensorboardX import SummaryWriter
 from monai.utils import set_determinism
 from monai.transforms import AsDiscrete
-from networks.UXGCNNet_3D.network_backbone import UXGCNNET
+from networks.MG_Net_3D.network_backbone import MG_Net_3D
 from monai.networks.nets import UNETR, SwinUNETR,VNet
 from monai.metrics import DiceMetric
 from monai.losses import DiceCELoss
@@ -22,11 +22,11 @@ import argparse
 parser = argparse.ArgumentParser(description='3D UX-Net hyperparameters for medical image segmentation')
 ## Input data hyperparameters
 parser.add_argument('--root', type=str, default='/mnt/mydisk/Project/data/Task101_FeTA2022', help='Root folder of all your images and labels')
-parser.add_argument('--output', type=str, default='/mnt/mydisk/Project/Fetal_brain_deeplearning/MG-Net/output_new/feta2022/UXGCNNET',  help='Output folder for both tensorboard and the best model')
+parser.add_argument('--output', type=str, default='/mnt/mydisk/Project/Fetal_brain_deeplearning/MG-Net/output_new/feta2022/MG_Net_3D',  help='Output folder for both tensorboard and the best model')
 parser.add_argument('--dataset', type=str, default='feta',  help='Datasets: {feta, flare, amos}, Fyi: You can add your dataset here')
 
 ## Input model & training hyperparameters
-parser.add_argument('--network', type=str, default='UXGCNNET', help='Network models: {TransBTS,VNet, nnFormer, UNETR, SwinUNETR, 3DUXNET,TransGCN,UXGCNNET}')
+parser.add_argument('--network', type=str, default='MG_Net_3D', help='Network models: {TransBTS,VNet, nnFormer, UNETR, SwinUNETR, 3DUXNET,TransGCN,MG_Net_3D}')
 parser.add_argument('--mode', type=str, default='train', help='Training or testing mode')
 parser.add_argument('--pretrain', default=False, help='Have pretrained weights or not')
 parser.add_argument('--pretrained_weights', default='', help='Path of pretrained weights')
@@ -102,8 +102,8 @@ elif args.network == 'UNETR':
         res_block=True,
         dropout_rate=0.0,
     )
-elif args.network == 'UXGCNNET':
-    model = UXGCNNET(
+elif args.network == 'MG_Net_3D':
+    model = MG_Net_3D(
         in_chans=1,
         out_chans=out_classes,
         depths=[1, 1, 1, 1],

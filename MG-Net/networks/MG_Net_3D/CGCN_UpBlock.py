@@ -16,7 +16,7 @@ import torch
 import torch.nn as nn
 
 from monai.networks.blocks.dynunet_block import UnetBasicBlock, UnetResBlock, get_conv_layer
-from networks.UXGCNNet_3D.gcn_lib import Grapher as GCB 
+from networks.MG_Net_3D.gcn_lib import Grapher as GCB 
 
 class SPA(nn.Module):
     def __init__(self, kernel_size=7):

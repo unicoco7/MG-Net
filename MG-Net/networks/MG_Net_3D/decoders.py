@@ -12,8 +12,8 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import scipy.misc 
 
-from networks.UXGCNNet_3D.gcn_lib import Grapher3D as GCB3D
-from networks.UXGCNNet_3D.gcn_lib import Grapher as GCB
+from networks.MG_Net_3D.gcn_lib import Grapher3D as GCB3D
+from networks.MG_Net_3D.gcn_lib import Grapher as GCB
 
 class SPA(nn.Module):
     def __init__(self, kernel_size=7):

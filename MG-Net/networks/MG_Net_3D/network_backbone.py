@@ -7,15 +7,15 @@ import torch.nn as nn
 
 from monai.networks.blocks.dynunet_block import UnetOutBlock
 # from monai.networks.blocks.unetr_block import UnetrBasicBlock, UnetrUpBlock
-from networks.UXGCNNet_3D.CGCN_UpBlock import UnetrBasicBlock, UnetrUpBlock
+from networks.MG_Net_3D.CGCN_UpBlock import UnetrBasicBlock, UnetrUpBlock
 from typing import Union
 import torch.nn.functional as F
 from lib.utils.tools.logger import Logger as Log
 from lib.models.tools.module_helper import ModuleHelper
-from networks.UXGCNNet_3D.uxnet_encoder import uxnet_conv
-from networks.UXGCNNet_3D.swin_transformer import *
-from networks.UXGCNNet_3D.decoders import *
-from networks.UXGCNNet_3D.skipconnect3d import *
+from networks.MG_Net_3D.uxnet_encoder import uxnet_conv
+from networks.MG_Net_3D.swin_transformer import *
+from networks.MG_Net_3D.decoders import *
+from networks.MG_Net_3D.skipconnect3d import *
 
 class ProjectionHead(nn.Module):
     def __init__(self, dim_in, proj_dim=256, proj='convmlp', bn_type='torchbn'):
@@ -36,7 +36,7 @@ class ProjectionHead(nn.Module):
         return F.normalize(self.proj(x), p=2, dim=1)
 
 
-class UXGCNNET(nn.Module):
+class MG_Net_3D(nn.Module):
 
     def __init__(
         self,
